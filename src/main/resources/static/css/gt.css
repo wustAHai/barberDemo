@@ -1,0 +1,16 @@
+#captcha {
+    width: 300px;
+    display: inline-block;
+}
+
+.gt_hide {
+    display: block;
+}
+
+.gt_hide {
+    display: none;
+}
+
+#notice {
+    color: red;
+}

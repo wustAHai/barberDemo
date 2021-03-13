@@ -17,8 +17,8 @@ public interface UserMapper {
     @Select("select * from user where id = #{id}")
     User findUserById(int id);
 
-    @Select("select * from user where username=#{username}")
-    User findUserByUsername(String username);
+    @Select("select * from user where name=#{username}")
+    List<User> findUserByUsername(String username);
 
     @Insert("insert into user(name,password) value(#{name},#{password})")
     void addUser(User user);
@@ -34,4 +34,23 @@ public interface UserMapper {
 
     @Update("update user set balance=balance+#{in} where id=#{id}")
     void balanceIn(double in,int id);
+
+    @Select("select * from user where name like CONCAT('%',#{name},'%') and role=2")
+    List<User> findUserLikeName(String name);
+
+    @Select("select count(*) from user where name like CONCAT('%',#{name},'%') and role=2")
+    int findUserNum(String name);
+
+    @Select("select * from user where name like CONCAT('%',#{name},'%') and role=2 limit #{offset},#{length} ")
+    List<User> findPageUsers(String name,int offset,int length);
+
+    @Select("select role from user where name =#{name}")
+    int queryUserRole(String name);
+
+    @Select("select count(*) from user where name = #{name} and role=2")
+    int findUserNumByName(String name);
+
+
+    @Select("select * from user where name  = #{name} and role=2 limit #{offset},#{length} ")
+    List<User> findPageUsersByName(String name,int offset,int length);
 }

@@ -1,0 +1,15 @@
+.ahai_active{
+    color: #337AB7!important;
+}
+
+.ahai_label{
+    color: #337AB7;
+    margin: 0 20px;
+    display: block;
+}
+
+.my_radio{
+    color: #337AB7;
+    display: inline-block;
+    margin: 0 30px;
+}

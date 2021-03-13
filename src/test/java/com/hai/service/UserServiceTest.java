@@ -1,5 +1,6 @@
 package com.hai.service;
 
+import com.hai.pojo.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,16 @@ public class UserServiceTest {
     @Test
     public void balanceOut() {
         userService.balanceOut(100,1);
+    }
+
+    @Test
+    public void testUser(){
+        for (int i = 0; i < 100; i++) {
+            User user = new User();
+            user.setPassword("123456");
+            user.setName("test"+i);
+            user.setBalance(100);
+            userService.loginOrRegister(user);
+        }
     }
 }
